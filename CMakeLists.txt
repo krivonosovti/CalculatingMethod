@@ -9,4 +9,5 @@ add_executable(3course task_1/task_1.cpp
         basic_function.h
         task_2/root_search.cpp
         task_2/task_2_main.cpp
-        main.cpp)
+        main.cpp
+        task_2/root_search.h)
