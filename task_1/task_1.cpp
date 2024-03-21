@@ -107,7 +107,7 @@ using namespace  std;
 //    });
 //}
 
-int main() {
+void interpolationByNewton() {
     int NumValInTable;
     double a, b, x,degree;
     bool checker;
@@ -137,5 +137,4 @@ int main() {
 
         cout << create_Newton_polinomial(nodes, x) << endl << endl << endl;
     }
-    return 0;
 }
