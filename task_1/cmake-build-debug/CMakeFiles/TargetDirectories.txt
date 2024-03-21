@@ -1,0 +1,3 @@
+/Users/krivonosovti/SPbU/3course/task_1/cmake-build-debug/CMakeFiles/3course.task_1.dir
+/Users/krivonosovti/SPbU/3course/task_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/krivonosovti/SPbU/3course/task_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
