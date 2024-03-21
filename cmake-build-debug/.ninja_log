@@ -1,0 +1,7 @@
+# ninja log v5
+2514	2699	1711009737268640013	3course	e809aed2ff082f63
+1	1545	1711009815393902645	CMakeFiles/3course.dir/task_1/main.cpp.o	ba63200eb6cb1d98
+2	1582	1711009815434514694	CMakeFiles/3course.dir/task_1/implementation.cpp.o	8e11362ff16cafcb
+1550	1619	1711009815480076581	CMakeFiles/3course.dir/task_2/root_search.cpp.o	403b45559cc67610
+3	1652	1711009815508450982	CMakeFiles/3course.dir/basic_function.cpp.o	b148effab6c00cf
+1652	1759	1711009815617814660	3course	3a505a2d736c80fc

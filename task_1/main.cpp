@@ -5,7 +5,7 @@
 #include <vector>
 #include <utility>
 #include "interpolationNewton.h"
-
+#include "/Users/krivonosovti/SPbU/3course/basic_function.h"
 using namespace  std;
 //
 //bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree)
