@@ -9,7 +9,9 @@ using namespace std;
 int main(){
 
    //interpolationByNewton();
-   root_search(-9, 1,1000,7 );
-
+   //task2_part1(-9, 1,1000,0.0000001,1);
+   cout << endl << '\n';
+   //task2_part1(-9, 1,1000,0.01,2);
+   task2_part2();
  return 0;
 }

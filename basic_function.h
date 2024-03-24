@@ -5,7 +5,7 @@
 #ifndef INC_3COURSE_TASK_1_BASIC_FUNCTION_H
 #define INC_3COURSE_TASK_1_BASIC_FUNCTION_H
 using namespace std;
-
+double func(double x);
 bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree);
 vector<pair<double, double>> buildFunctionValues(double a, double b, int numPoints);
 void vector_print(vector<pair<double, double>>& nodes);

@@ -4,8 +4,10 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <algorithm>
 
 using namespace std;
+
 
 double  six_var_func (double x) {
     double result = cos(x);
@@ -13,14 +15,15 @@ double  six_var_func (double x) {
     return result;
 }
 
-int operation(double(*op)(double), double a)
+double operation(double(*op)(double), double a)
 {
     return op(a);
 }
 
 //operation(add, a, b)
-void bisection(double A,  double B, const double error_rate) {
+pair<double, double> bisection(double A,  double B, const double error_rate, int &con ){
     double C = 0;
+    int counter = 0;
     while (B-A>2.0*error_rate)
     {
         C = (A+B)/2.0;
@@ -32,21 +35,36 @@ void bisection(double A,  double B, const double error_rate) {
         {
             A=C;
         }
+        counter++;
     }
     double x = (A+B)/2.0;
+    con = counter;
 
-    cout << x << "  +- " << (B-A)/2.0 << '{' << operation(six_var_func,x)<<" - 0}"<< endl;
+    return make_pair((double )x,(double) (B-A)/2.0);
 }
 
-void pruner (double A,  double B, const double error_rate){
+pair<double, double>  pruner (double A,  double B, const double error_rate, int& counter){  //тут херня какая-то
+    double X1 = A, C = B - A, X2 = INT_MAX, Yc;
+    while (abs(X2 - C) > error_rate) {
+        Yc = operation(six_var_func, C);
+        X2 = C - ((C - X1)/(Yc - operation(six_var_func, X1))) * Yc;
+        counter += 1;
+    }
 
+    return make_pair((double) X2, (double ) error_rate);
 }
 
-void correction (void(*op) (double A, double B, double error_rate), double A, double B, double error_rate ) {
-    op(A,B,error_rate);
+pair<double, double> correction (pair <double, double> (*op) (double A, double B, double error_rate, int& counter), double A, double B, double error_rate, int& counter ) {
+   return op(A,B,error_rate, counter);
 }
 
-string root_div(double A, double B, int N, double error_rate)
+void print_result_from_vector(vector <pair <double,double>> RES){
+    for (int i = 0; i < RES.size(); i++)
+        cout << RES[i].first << "  +- " << RES[i].second << '{' << operation(six_var_func,RES[i].first)<<" - 0}"<< endl;
+}
+
+
+string root_div(double A, double B, int N, double error_rate, int type)
 {
 
     if(N < 2) {
@@ -56,9 +74,10 @@ string root_div(double A, double B, int N, double error_rate)
 
     string result = " ";
     int counter = 0;
+    int m = 0;
     double H = (B-A)/N;
     double X1 = A, X2 = X1+H, Y1 = operation(six_var_func, X1), Y2 = 0.0; //в operation идет присваивание коругление хуй пойми почему!!!!!!ЫЫ
-
+    vector <pair <double,double>> RES;
     while(X2 <= B)
     {
         if(X1 == -8.28);
@@ -67,7 +86,11 @@ string root_div(double A, double B, int N, double error_rate)
         if (Y1*Y2<=0)
         {
             counter++;
-            correction(bisection, X1, X2, error_rate);
+            if (type == 1)
+                RES.push_back(correction(bisection, X1, X2, error_rate, m));
+            else
+                RES.push_back(correction(pruner, X1, X2, error_rate, m));
+
             result += "["+ to_string(X1) + ' ' + to_string(X2) + "]  ";
         }
 
@@ -78,6 +101,9 @@ string root_div(double A, double B, int N, double error_rate)
     }
 
     result += ' '+to_string(counter);
+    cout << "колличество шагов: " << m << endl;
+    print_result_from_vector (RES);
+
     return result ;
 }
 

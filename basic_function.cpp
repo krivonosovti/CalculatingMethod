@@ -7,6 +7,9 @@
 #include <utility>
 #include "basic_function.h"
 using namespace std;
+double func(double x){
+    return x * x / (1 + x * x);
+}
 
 bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree)
 {
@@ -40,7 +43,7 @@ vector<pair<double, double>> buildFunctionValues(double a, double b, int numPoin
 
     for (int i = 0; i < numPoints; ++i) {
         double x = a + i * step;
-        double y = x * x / (1 + x * x);
+        double y = func(x);
         result.push_back(make_pair(x, y));
     }
     return result;
