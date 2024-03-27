@@ -11,18 +11,24 @@ double func(double x){
     return x * x / (1 + x * x);
 }
 
-bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree)
+bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree, int &err)
 {
 
     cout << "Число значений в таблице m+1=";
     cin >> NumValInTable;
+    if (NumValInTable <= 0) {
+        err = 1;
+        return false;
+    }
     cout << "Левый конец интервала из которого выбираются узлы интерполяции a=";
     cin >> a;
     cout << "Правый конец интервала из которого выбираются узлы интерполяции b=";
     cin >> b;
 
-    if (b < a)
+    if (b < a) {
+        err = 2;
         return false;
+    }
 
     cout << "точка интерполирования, значение в которой хотим найти x=";
     cin >> x;
@@ -30,8 +36,11 @@ bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree
 //    cout <<"степень интерполяционного многочлена, который будет построен (n<=m) n="
 //           "для того, чтобы найти значение в точке x.";
 //    cin >> degree;
-    if(NumValInTable-1 < degree)
+    if(NumValInTable-1 < degree) {
+        err = 3;
         return false;
+    }
+
     return  true;
 }
 

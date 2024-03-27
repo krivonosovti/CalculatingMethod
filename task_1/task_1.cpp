@@ -108,7 +108,7 @@ using namespace  std;
 //}
 
 void interpolationByNewton() {
-    int NumValInTable;
+    int NumValInTable, err;
     double a, b, x,degree;
     bool checker;
     vector<pair<double, double>> nodes;
@@ -117,10 +117,21 @@ void interpolationByNewton() {
     {
         checker = false;
         while (!checker) {
-            checker = inputData(NumValInTable, a, b, x, reinterpret_cast<double &>(degree));
+            checker =  inputData(NumValInTable, a,b, x,degree,err);
             if (!checker) {
                 // cout << "a > b or n>m exeption" << endl << endl;
-                cout << "a > b exeption" << endl << endl;
+                switch (err) {
+                    case 1:
+                        cout << "m <= 0 exeption"<< endl << endl;
+                        break;
+                    case 2:
+                        cout << "a > b exeption" << endl << endl;
+                        break;
+                    case 3:
+                        cout << "NumValInTable-1 < degree exeption" << endl << endl;
+                        break;
+                }
+
             }
         }
 
@@ -136,5 +147,11 @@ void interpolationByNewton() {
 
 
         cout << create_Newton_polinomial(nodes, x) << endl << endl << endl;
+
+        cout << "Для перехода к другому заданию введите -1: ";
+        int br;
+        cin >> br;
+        if (br == -1)
+            return;
     }
 }

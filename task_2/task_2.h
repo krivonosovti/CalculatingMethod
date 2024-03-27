@@ -6,4 +6,5 @@
 #define INC_3COURSE_TASK_1_TASK_2_H
 void task2_part1 (double A, double  B, int N, const double error_rate, int type);
 void task2_part2 ();
+void task2_main();
 #endif //INC_3COURSE_TASK_1_TASK_2_H

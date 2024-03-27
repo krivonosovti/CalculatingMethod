@@ -46,7 +46,7 @@ using namespace std;
 //}
 
 
-double divide_difference(vector  <pair <double,double>>&  node, int k)
+double divide_difference(vector  <pair <double,double>>&  node, int k)  // https://studfile.net/preview/3075823/page:3/
 {
     double result =0;
     for (int j = 0; j <=k; j++)

@@ -44,14 +44,19 @@ pair<double, double> bisection(double A,  double B, const double error_rate, int
 }
 
 pair<double, double>  pruner (double A,  double B, const double error_rate, int& counter){  //тут херня какая-то
-    double X1 = A, C = B - A, X2 = INT_MAX, Yc;
-    while (abs(X2 - C) > error_rate) {
-        Yc = operation(six_var_func, C);
-        X2 = C - ((C - X1)/(Yc - operation(six_var_func, X1))) * Yc;
-        counter += 1;
+    double x0 = A, x1 = B, i = 0, x2;
+    if ( (operation(six_var_func, x0)) *(operation(six_var_func, x1))   <= 0)
+    {
+        while (abs(x0-x1) > error_rate) {
+            i += 1;
+            x2 = x1 - (operation(six_var_func, x1)) * ((x1 - x0) / ((operation(six_var_func, x1)) - (operation(six_var_func, x0))));
+            x0 = x1;
+            x1 = x2;
+        }
     }
+    counter = i;
 
-    return make_pair((double) X2, (double ) error_rate);
+    return make_pair((double) x1, abs(x1));
 }
 
 pair<double, double> correction (pair <double, double> (*op) (double A, double B, double error_rate, int& counter), double A, double B, double error_rate, int& counter ) {
@@ -60,7 +65,8 @@ pair<double, double> correction (pair <double, double> (*op) (double A, double B
 
 void print_result_from_vector(vector <pair <double,double>> RES){
     for (int i = 0; i < RES.size(); i++)
-        cout << RES[i].first << "  +- " << RES[i].second << '{' << operation(six_var_func,RES[i].first)<<" - 0}"<< endl;
+        cout << RES[i].first << "  +- " << RES[i].second << " - корень;    Модуль невязки: "  <<"{ " << operation(six_var_func,RES[i].first)<<" - 0}"<< endl;
+
 }
 
 
@@ -76,7 +82,7 @@ string root_div(double A, double B, int N, double error_rate, int type)
     int counter = 0;
     int m = 0;
     double H = (B-A)/N;
-    double X1 = A, X2 = X1+H, Y1 = operation(six_var_func, X1), Y2 = 0.0; //в operation идет присваивание коругление хуй пойми почему!!!!!!ЫЫ
+    double X1 = A, X2 = X1+H, Y1 = operation(six_var_func, X1), Y2 = 0.0;
     vector <pair <double,double>> RES;
     while(X2 <= B)
     {
@@ -101,8 +107,10 @@ string root_div(double A, double B, int N, double error_rate, int type)
     }
 
     result += ' '+to_string(counter);
-    cout << "колличество шагов: " << m << endl;
+    cout << "Колличество шагов: " << m << endl;
     print_result_from_vector (RES);
+    if (type == 1)
+        cout  << "[ai,bi] = " << abs(X2-X1) << endl;
 
     return result ;
 }
