@@ -24,5 +24,6 @@ double reverse_interpolation_1(vector <pair <double,double>>& Table, double x){
 
 double reverse_interpolation_2()
 {
-     create_Newton_polinomial( )
+     return 0;
+     //create_Newton_polinomial( )
 }

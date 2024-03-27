@@ -91,6 +91,12 @@ build CMakeFiles/3course.dir/task_3/task_3_main.cpp.o: CXX_COMPILER__3course_uns
   OBJECT_DIR = CMakeFiles/3course.dir
   OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_3
 
+build CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_2/reverse_interpolation.cpp || cmake_object_order_depends_target_3course
+  DEP_FILE = CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/3course.dir
+  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_2
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 3course
@@ -99,7 +105,7 @@ build CMakeFiles/3course.dir/task_3/task_3_main.cpp.o: CXX_COMPILER__3course_uns
 #############################################
 # Link the executable 3course
 
-build 3course: CXX_EXECUTABLE_LINKER__3course_Debug CMakeFiles/3course.dir/task_1/task_1.cpp.o CMakeFiles/3course.dir/task_1/implementation.cpp.o CMakeFiles/3course.dir/basic_function.cpp.o CMakeFiles/3course.dir/task_2/root_search.cpp.o CMakeFiles/3course.dir/task_2/task_2_main.cpp.o CMakeFiles/3course.dir/main.cpp.o CMakeFiles/3course.dir/task_3/task_3_main.cpp.o
+build 3course: CXX_EXECUTABLE_LINKER__3course_Debug CMakeFiles/3course.dir/task_1/task_1.cpp.o CMakeFiles/3course.dir/task_1/implementation.cpp.o CMakeFiles/3course.dir/basic_function.cpp.o CMakeFiles/3course.dir/task_2/root_search.cpp.o CMakeFiles/3course.dir/task_2/task_2_main.cpp.o CMakeFiles/3course.dir/main.cpp.o CMakeFiles/3course.dir/task_3/task_3_main.cpp.o CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/3course.dir
   POST_BUILD = :

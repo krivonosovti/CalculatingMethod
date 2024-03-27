@@ -3,6 +3,5 @@
 //
 #ifndef INC_3COURSE_TASK_1_REVERSE_INTERPOLATION_H
 #define INC_3COURSE_TASK_1_REVERSE_INTERPOLATION_H
-using namespace std;
-double reverse_interpolation_1(vector <pair <double,double>>& Table, double x);
+double reverse_interpolation_1(std:: vector <std::pair <double,double>>& Table, double x);
 #endif //INC_3COURSE_TASK_1_REVERSE_INTERPOLATION_H

@@ -113,6 +113,8 @@ void interpolationByNewton() {
     bool checker;
     vector<pair<double, double>> nodes;
 
+    cout << "Задача 1    ЗАДАЧА АЛГЕБРАИЧЕСКОГО ИНЕРПОЛИРОВАНИЯ" << endl;
+    cout << " Вариант 6" << endl << endl;
     while (true)
     {
         checker = false;
