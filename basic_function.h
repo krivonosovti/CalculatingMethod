@@ -11,5 +11,6 @@ vector<pair<double, double>> buildFunctionValues(double a, double b, int numPoin
 void vector_print(vector<pair<double, double>>& nodes);
 bool compare(const pair<double, double>& a, const pair<double, double>& b, const double& x) ;
 void sortByDistance(vector<pair<double, double>>& Table, const double& x);
+//void drow_graph(vector<pair <double,double>>& func);//, vector<pair <double,double>>& polimominal);
 
 #endif //INC_3COURSE_TASK_1_BASIC_FUNCTION_H

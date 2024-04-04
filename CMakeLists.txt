@@ -15,4 +15,4 @@ add_executable(3course task_1/task_1.cpp
         task_3/task_3_main.h
         task_2/reverse_interpolation.cpp
         task_2/reverse_interpolation.h
-        )
+)

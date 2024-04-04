@@ -6,9 +6,15 @@
 #include <vector>
 #include <utility>
 #include "basic_function.h"
+//#include "/Users/krivonosovti/SPbU/3course/winbgim/graphics.h"
+
 using namespace std;
+double main_func(double x){
+    return x * x / (1 + x * x); //мотонна от на отрезках R+ and R-
+}
+
 double func(double x){
-    return x * x / (1 + x * x);
+    return x * x; //мотонна от на отрезках R+ and R-
 }
 
 bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree, int &err)
@@ -76,3 +82,20 @@ void sortByDistance(vector<pair<double, double>>& Table, const double& x) {
         return compare(a, b, x);
     });
 }
+
+//
+//void drow_graph(vector<pair <double,double>>& func) //vector<pair <double,double>>& polimominal)
+//{
+//    int width = 100, height = 100;
+//    char* title="Граффик функция/полином";
+//    int left=0,  top=0;
+//    bool dbuf=false,  closeall=true;
+//    int window = initwindow( width, height, title, left, top, dbuf, closeall);
+//    int size = func.size();
+//
+//    for (int i =0; i  < size - 1; i++)
+//    {
+//        line( (int) func[i].first, (int) func[i].second,(int) func[i+1].first, (int) func[i+1].second);
+//       // line( (int) polimominal[i].first, (int) polimominal[i].second,(int) polimominal[i+1].first, (int) polimominal[i+1].second);
+//    }
+//}

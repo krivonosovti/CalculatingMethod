@@ -150,6 +150,9 @@ void interpolationByNewton() {
 
         cout << create_Newton_polinomial(nodes, x) << endl << endl << endl;
 
+
+       // drow_graph(nodes);
+
         cout << "Для перехода к другому заданию введите -1: ";
         int br;
         cin >> br;
