@@ -28,10 +28,8 @@ void task2_part1 (double A, double  B, int N, const double error_rate, int type)
     }
 }
 
-void task2_part2 () {
-
-    cout << "ЗАДАЧА ОБРАТНОГО ИНТЕРПОЛИРОВАНИЯ" << endl <<  "Задание 2.2 " << endl;
-
+void task2_part2_sab1 () {
+    cout << "Для мононтонного промежутка" << endl <<endl;
     int NumValInTable, err;
     double a, b, x, degree;
     bool checker;
@@ -51,11 +49,11 @@ void task2_part2 () {
         vector_print(nodes);
 
 
-
         double F_x = func(x); //мотонна от на отрезках R+ and R-
         double res = reverse_interpolation_1(nodes, F_x);
 
-        cout << "x = " << x  << "; F(x) = "<< F_x << "; reverse_interpolation( F(x) ) = " << res << "; погрешность = " << abs(x - res) << endl << endl;
+        cout << "x = " << x << "; F(x) = " << F_x << "; reverse_interpolation( F(x) ) = " << res
+             << "; погрешность = " << abs(x - res) << endl << endl;
 
 
         cout << "Для перехода к другому заданию введите -1: ";
@@ -63,10 +61,90 @@ void task2_part2 () {
         cin >> br;
         if (br == -1)
             return;
+
     }
 }
 
-void task2_main() {
+
+void task2_part2_sab2() {
+
+
+    int NumValInTable, err;
+    double a, b, x, degree;
+    bool checker;
+    cout << "Задайте параметы исходной функции: " <<endl;
+    vector<pair<double, double>> nodes;
+        checker = false;
+        while (!checker) {
+            checker = inputData(NumValInTable, a, b, x, reinterpret_cast<double &>(degree), err);
+            if (!checker) {
+                // cout << "a > b or n>m exeption" << endl << endl;
+                cout << "a > b exeption" << endl << endl;
+            }
+        }
+
+        double A, B, N, error_rate;
+        cout << "    Введите начало интервала: ";
+        cin >> A;
+        cout << "    Введите конец интервала:";
+        cin >> B;
+        if (A == B) {
+            cout << endl;
+            return;
+        }
+        if (B < A)
+            swap(B, A);
+
+        cout << "    Введите размер дробления (>0): ";
+        cin >> N;
+        if (N <= 0) {
+            cout << endl;
+            return;
+        }
+
+        cout << "    Введите допустимую погрешность: (>0) ";
+        cin >> error_rate;
+        cout << endl << endl;
+        if (error_rate <= 0) {
+            cout << endl;
+            {
+                cout << endl;
+                return;
+            }
+        }
+
+        cout << "    Введите тип задания (1 - биссекция, 0 -  метод секущих ";
+        int type;
+        cin >> type;
+        type%=2;
+        cout << endl << endl;
+
+
+        int sub;
+
+        while (true) {
+            checker = false;
+            while (!checker){
+                {
+
+                    try {
+                        cout << "Метод: ";
+                        if (type == 1)
+                            cout << "Бисекция" << endl;
+                        else
+                            cout << "Секущих" << endl;
+                        cout << reverse_interpolation_2(A, B, N, error_rate, type, nodes);
+                    }
+                    catch (exception) {
+                        cout << "N<2";
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    void task2_main() {
 
         int part;
         cout << "Введите тип задания (mod 2) (1 - поиск корней, 0 - обратная интерполяция) ";
@@ -107,9 +185,15 @@ void task2_main() {
             cout << endl << endl;
             task2_part1(A, B, N, error_rate, 1);
             cout << endl << endl;
-        }
-        else{
-            task2_part2();
+        } else {
+            cout << "ЗАДАЧА ОБРАТНОГО ИНТЕРПОЛИРОВАНИЯ" << endl << "Задание 2.2 " << endl;
+            cout << "Введите 1 если монотонный промежуток, 0 если нет: ";
+            int sub;
+            cin >> sub;
+            if (sub % 2 == 1)
+                task2_part2_sab1();
+            else
+                task2_part2_sab2();
             cout << endl;
             return;
         }
@@ -118,5 +202,8 @@ void task2_main() {
         int br;
         cin >> br;
         if (br == -1)
-        return;
-}
+            return;
+    }
+
+
+

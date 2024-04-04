@@ -28,7 +28,11 @@ double reverse_interpolation_1(vector <pair <double,double>>& Table, double x){
     return create_Newton_polinomial(Table, x);
 }
 
-double reverse_interpolation_2(double A, double B, double N,double error_rate, int type, vector<pair <double, double>>& Table)
+double operation_2(double(*op)(vector<pair<double,double>>& Table,double a),vector<pair<double,double>>& Table, double a)
+{
+    return op(Table,a);
+}
+string reverse_interpolation_2(double A, double B, double N,double error_rate, int type, vector<pair <double, double>>& Table)
 {
 
 
@@ -41,11 +45,10 @@ double reverse_interpolation_2(double A, double B, double N,double error_rate, i
         int counter = 0;
         int m = 0;
         double H = (B-A)/N;
-        double X1 = A, X2 = X1+H, Y1 = operation(create_Newton_polinomial, X1), Y2 = 0.0;
+        double X1 = A, X2 = X1+H, Y1 = operation_2(create_Newton_polinomial, Table, X1), Y2 = 0.0;
         vector <pair <double,double>> RES;
         while(X2 <= B)
         {
-            if(X1 == -8.28);
             Y2 = operation(six_var_func,X2);
 
             if (Y1*Y2<=0)
@@ -71,6 +74,6 @@ double reverse_interpolation_2(double A, double B, double N,double error_rate, i
         if (type == 1)
             cout  << "[ai,bi] = " << abs(X2-X1) << endl;
 
-        return result ;
+        return result;
 
 }
