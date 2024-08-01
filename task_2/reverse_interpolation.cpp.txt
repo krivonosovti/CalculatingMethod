@@ -1,0 +1,268 @@
+//
+// Created by krivonosovTi on 27.03.2024.
+//
+
+
+#include <utility>
+#include <iostream>
+#include <iomanip>
+
+#include "root_search.h"
+#include "/Users/krivonosovti/SPbU/Vichi/basic_function.h.txt"
+#include "/Users/krivonosovti/SPbU/Vichi/task_1/interpolationNewton.h"
+using namespace std;
+
+double correction2 ( double (*op) (double A, double B, double error_rate, int& counter), double A, double B, double error_rate, int& counter ) {
+    return op(A,B,error_rate, counter);
+}
+
+double reverse_interpolation_1(vector <pair <double,double>>& Table, double x){
+
+    int check = 1;
+    double degree;
+    //мотонна от на отрезках R+ and R-
+
+    for(auto& pair : Table) {
+        std::swap(pair.first, pair.second);
+    }
+
+    sortByDistanceFromX(Table, x);
+
+    cout << endl;
+
+    vector_print(Table);
+    while (check==1) {
+        check = 2;
+        cout << endl << "Введите степень полинома меньше m+1: ";
+        cin >> degree;
+        if (degree > Table.size()) {
+            cout << "Введите степень меньше m+1 \n";
+            check = 1;
+        }
+    }
+    return create_Newton_polinomial(Table, x, degree);
+}
+
+
+double operation_2(double(*op)(vector<pair<double,double>>& Table,double a, double degree),vector<pair<double,double>>& Table, double a, double degree)
+{
+    return op(Table,a, degree);
+}
+
+string reverse_interpolation_2(double A, double B, double N,double error_rate, int type, vector<pair <double, double>>& Table)
+{
+
+
+        if(N < 2) {
+            cout << " N<2 exeption";
+            return NULL;
+        }
+        double degree;
+        bool check = true;
+        while (check) {
+            cout << endl << "Введите степень полинома меньше m+1: ";
+            cin >> degree;
+            if (degree > Table.size()) {
+                cout << "Введите степень меньше m+1 \n";
+                continue;
+            }
+            check = false;
+            cout << endl;
+            cout << endl;
+        }
+    string result = " ";
+        int counter = 0;
+        int m = 0;
+        double H = (B-A)/N;
+        double X1 = A, X2 = X1+H, Y1 = operation_2(create_Newton_polinomial, Table, X1, degree ), Y2 = 0.0;
+        vector <double> RES;
+        while(X2 <= B)
+        {
+            Y2 = operation(six_var_func,X2);
+
+            if (Y1*Y2<=0)
+            {
+                counter++;
+                if (type == 1)
+                    RES.push_back(correction2(reinterpret_cast<double (*)(double, double, double, int &)>(bisection), X1, X2, error_rate, m));
+                else
+                    RES.push_back(correction2(reinterpret_cast<double (*)(double, double, double, int &)>(pruner), X1, X2, error_rate, m));
+
+               // result += "["+ to_string(X1) + ' ' + to_string(X2) + "]  ";
+            }
+
+            X1 = X2;
+            X2 = X1 + H;
+            Y1 = Y2;
+
+        }
+
+        result += "Колличество шагов при уточнении: "+to_string(counter);
+        cout << "Колличество шагов: " << m << endl;
+        print_result_from_vector (RES);
+        if (type == 1)
+            cout  << "[ai,bi] = " << abs(X2-X1) << endl;
+
+        return result;
+
+}
+
+
+vector<pair<double, double>> task2_part2_sab1 (vector<pair<double, double>>& Tab) {
+    cout << "Для мононтонного промежутка" << endl << endl;
+    int NumValInTable, err;
+    double a, b, x, degree;
+    bool checker;
+    if (Tab.empty()) {
+        vector<pair<double, double>> nodes;
+        while (true) {
+            checker = false;
+            while (!checker) {
+                checker = inputData(NumValInTable, a, b, err);
+                if (!checker) {
+                    // cout << "a > b or n>m exeption" << endl << endl;
+                    cout << "a > b exeption" << endl << endl;
+                }
+            }
+
+            nodes = buildFunctionValues(a, b, NumValInTable);
+
+            vector_print(nodes);
+
+            Tab = nodes;
+
+
+            double F_x;// = func(x); //мотонна от на отрезках R+ and R-
+
+            cout << endl << "Введите F(x) ";
+            cin >> F_x;
+            cout << "\n";
+
+            double res = reverse_interpolation_1(nodes, F_x);
+
+            cout << "F(x) = " << F_x << "; reverse_interpolation( F(x) ) = " << fixed << setprecision(15) << res
+                 << "; Модуль невязки = " << abs(func(res) - F_x) << endl << endl;
+
+
+            cout << "Для перехода к другому заданию введите -1: ";
+            int br;
+            cin >> br;
+            if (br == -1)
+                break;
+
+        }
+        return Tab;
+    }
+    return Tab;
+}
+
+
+vector<pair<double, double>> task2_part2_sab2(vector<pair<double, double>> &Tab) {
+
+
+    int NumValInTable, err;
+    double a, b;
+
+
+    bool checker;
+    vector<pair<double, double>> nodes;
+    if (Tab.empty()) {
+
+        while (true) {
+            checker = false;
+            while (!checker) {
+                checker = inputData(NumValInTable, a, b, err);
+                if (!checker) {
+                    // cout << "a > b or n>m exeption" << endl << endl;
+                    cout << "a > b exeption" << endl << endl;
+                }
+            }
+
+            nodes = buildFunctionValues(a, b, NumValInTable);
+
+            vector_print(nodes);
+
+            Tab = nodes;
+        }
+    } else
+        nodes = Tab;
+
+//    cout << "Задайте параметы исходной функции: " << endl;
+//    vector<pair<double, double>> nodes;
+//    checker = false;
+    while (!checker) {
+        checker = inputData(NumValInTable, a, b, err);
+        if (!checker) {
+            // cout << "a > b or n>m exeption" << endl << endl;
+            cout << "a > b exeption" << endl << endl;
+        }
+    }
+
+    nodes = buildFunctionValues(a, b, NumValInTable);
+
+    vector_print(nodes);
+
+
+    double A, B, N, error_rate;
+    cout << "    Введите начало интервала: ";
+    cin >> A;
+    cout << "    Введите конец интервала:";
+    cin >> B;
+    if (A == B) {
+        cout << endl;
+        return Tab;
+    }
+    if (B < A)
+        swap(B, A);
+
+    cout << "    Введите размер дробления (>0): ";
+    cin >> N;
+    if (N <= 0) {
+        cout << endl;
+        return Tab;
+    }
+
+    cout << "    Введите допустимую погрешность: (>0) ";
+    cin >> error_rate;
+    cout << endl << endl;
+    if (error_rate <= 0) {
+        cout << endl;
+        {
+            cout << endl;
+            return Tab;
+        }
+    }
+
+    while (true) {
+        cout << "    Введите тип задания (1 - биссекция, 0 -  метод секущих) ";
+        int type;
+        cin >> type;
+        type %= 2;
+        cout << endl << endl;
+
+
+        checker = false;
+        try {
+            cout << "Метод: ";
+
+            if (type == 1)
+                cout << "Бисекция" << endl;
+            else
+                cout << "Секущих" << endl;
+
+            cout << reverse_interpolation_2(A, B, N, error_rate, type, nodes);
+        }
+        catch (exception) {
+            cout << "N<2";
+            return Tab;
+        }
+
+        int che;
+        cout << endl << endl << "Использовать другой метод уточнения? (0 - нет, иначе да) " << endl;
+        cin >> che;
+        if (che == 0)
+            break;
+
+    }
+    return Tab;
+}

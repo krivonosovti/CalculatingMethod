@@ -1,0 +1,170 @@
+//
+// Created by krivonosovTi on 21.03.2024.
+//
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include "/Users/krivonosovti/SPbU/Vichi/basic_function.h.txt"
+
+
+using namespace std;
+
+
+double  six_var_func (double x) {
+    double result = cos(x);
+    result = result * 8.0 - x - 6.0;
+    return result;
+}
+
+double operation(double(*op)(double), double a)
+{
+    return op(a);
+}
+
+//operation(add, a, b)
+double bisection(double A,  double B, const double error_rate, int &con ){
+    double C = 0;
+    int counter = 0;
+    while (B-A>2.0*error_rate)
+    {
+        C = (A+B)/2.0;
+        if (operation(six_var_func,A) * operation(six_var_func,C) <= 0)
+        {
+            B=C;
+        }
+        else
+        {
+            A=C;
+        }
+        counter++;
+    }
+    double x = (A+B)/2.0;
+    double delta = (B-A)/2.0;
+    con = counter;
+
+    return x;
+}
+
+double  pruner (double A,  double B, const double error_rate, int& counter){  //тут херня какая-то
+    double x0 = A, x1 = B, i = 0, x2;
+    if ( (operation(six_var_func, x0)) *(operation(six_var_func, x1))   <= 0)
+    {
+        while (abs(x0-x1) > error_rate) {
+            i += 1;
+            x2 = x1 - (operation(six_var_func, x1)) * ((x1 - x0) / ((operation(six_var_func, x1)) - (operation(six_var_func, x0))));
+            x0 = x1;
+            x1 = x2;
+        }
+    }
+    counter = i;
+
+    return x1;
+}
+
+double correction ( double (*op) (double A, double B, double error_rate, int& counter), double A, double B, double error_rate, int& counter ) {
+   return op(A,B,error_rate, counter);
+}
+
+void print_result_from_vector(vector <double> RES){
+    for (int i = 0; i < RES.size(); i++)
+        cout << RES[i] << " - корень;    Модуль невязки: "  <<"{ " << operation(six_var_func,RES[i])<<" - 0}"<< endl;
+
+}
+
+
+void root_div(double A, double B, int N,  vector <pair <double,double>>& RES, int& m)
+{
+
+    if(N < 2) {
+        cout << " N<2 exeption";
+        return;
+    }
+
+    int counter = 0;
+    m = 0;
+    double H = (B-A)/N;
+    double X1 = A, X2 = X1+H, Y1 = operation(six_var_func, X1), Y2 = 0.0;
+    while(X2 <= B)
+    {
+
+//        if(X1 == -8.28);
+        Y2 = operation(six_var_func,X2);
+
+        if (Y1*Y2<=0)
+        {
+            counter++;
+            RES.push_back({X1,X2});
+        }
+
+            X1 = X2;
+            X2 = X1 + H;
+            Y1 = Y2;
+
+    }
+}
+
+using CorrectionMethod =  double (*)(double, double, const double, int&);
+
+
+void task2_part1 (double A, double  B, int N, const double error_rate)
+{
+    cout << "ЧИСЛЕННЫЕ МЕТОДЫ РЕШЕНИЯ НЕЛИНЕЙНЫХ УРАВНЕНИЙ" << endl <<  "Задание 2.1 " << endl;
+    cout << "Исходные параметры: [" << A << ';' << B << "]  F(x) = 8cos(x)-x-6  N = "<< N <<"  e = " << error_rate << endl ;
+
+    try{
+        int m;
+        vector <pair <double,double>> RES;
+        vector <double> RESULT;
+        root_div(A,B,N, RES, m);
+        cout << "Колличество шагов: " << m << endl;
+        cout << "КОРНИ: \n";
+        vector_print(RES);
+        cout << endl;
+        bool check = 1;
+        int che;
+        CorrectionMethod foo;
+        while(true)
+        {
+            RESULT.clear();
+            m = 0;
+            check = 2;
+            cout << "Выберите метод уточнения: Бисекция - 1, Скущих - 2 ";
+            cin >> che;
+            if (che == 1)
+                foo = bisection;
+            else
+                foo = pruner;
+            int size = RES.size();
+            for (int i = 0; i < size; i++)
+            {
+                   RESULT.push_back(correction(foo, RES[i].first, RES[i].second , error_rate, m));
+            }
+            cout << "УТОЧНЕННЫЕ КОРНИ: \n";
+            cout << "Количество шагов: " << m << endl;
+
+           // vector_print(RESULT);
+
+            for (int i = 0 ; i < RESULT.size(); i++)
+            {
+                cout << fixed << setprecision(15) << RESULT[i]<< " Модуль невязки: " << abs(six_var_func(RESULT[i]) - 0) << " \n" ;
+            }
+
+            cout << "Если хотите опробовать другой метод введите 1 ";
+            int x;
+            cin >> x;
+
+            if (x != 1)
+            {
+            cout << endl;
+            break;
+            }
+        }
+    }
+    catch (exception)
+    {
+        cout << "N<2";
+        return;
+    }
+}

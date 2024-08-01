@@ -1,0 +1,20 @@
+//
+// Created by krivonosovTi on 21.03.2024.
+//
+
+#ifndef INC_3COURSE_TASK_2_ROOT_SEARCH_H
+#define INC_3COURSE_TASK_2_ROOT_SEARCH_H
+using namespace std;
+
+double  six_var_func (double x);
+double operation(double(*op)(double), double a);
+pair<double, double> bisection(double A,  double B, const double error_rate, int &con);
+pair<double, double>  pruner (double A,  double B, const double error_rate, int& counter);
+void print_result_from_vector(vector <pair <double,double>> RES);
+void root_div(double A, double B, int N,  vector <pair <double,double>>& RES, int& m);
+using CorrectionMethod =  double (*)(double, double, const double, int&);
+
+void print_result_from_vector(vector <double> RES);
+pair<double, double> RootsCorrection(int a, int b, double err, CorrectionMethod foo, int& m);
+void task2_part1 (double A, double  B, int N, const double error_rate);
+#endif //INC_3COURSE_TASK_2_ROOT_SEARCH_H

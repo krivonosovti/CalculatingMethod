@@ -5,47 +5,8 @@
 #include <vector>
 #include <utility>
 #include "interpolationNewton.h"
+
 using namespace std;
-
-//bool inputData(int &NumValInTable, double &a,double &b, double &x,double &degree)
-//{
-//
-//    cout << "Число значений в таблице m+1=";
-//    cin >> NumValInTable;
-//    cout << "Левый конец интервала из которого выбираются узлы интерполяции a=";
-//    cin >> a;
-//    cout << "Правый конец интервала из которого выбираются узлы интерполяции b=";
-//    cin >> b;
-//
-//    if (b < a)
-//        return false;
-//
-//    cout << "точка интерполирования, значение в которой хотим найти x=";
-//    cin >> x;
-//    degree = NumValInTable-1;
-////    cout <<"степень интерполяционного многочлена, который будет построен (n<=m) n="
-////           "для того, чтобы найти значение в точке x.";
-////    cin >> degree;
-//    if(NumValInTable-1 < degree)
-//        return false;
-//    return  true;
-//}
-//
-//vector<pair<double, double>> buildFunctionValues(double a, double b, int numPoints) {
-//    vector<pair<double, double>> result;
-//
-//    // Шаг между точкам
-//    double step = (b - a) / (numPoints - 1);
-//
-//    for (int i = 0; i < numPoints; ++i) {
-//        double x = a + i * step;
-//        double y = x * x / (1 + x * x);
-//        result.push_back(make_pair(x, y));
-//    }
-//    return result;
-//}
-
-
 double divide_difference(vector  <pair <double,double>>&  node, int k)  // https://studfile.net/preview/3075823/page:3/
 {
     double result =0;
@@ -63,14 +24,6 @@ double divide_difference(vector  <pair <double,double>>&  node, int k)  // https
     return result;
 }
 
-//void vector_print(vector<pair<double, double>>& nodes)
-//{
-//    // Выводим значения на экран
-//    for (const auto& node : nodes) {
-//        cout << "(" << node.first << ", " << node.second << ")" << endl;
-//    }
-//}
-
 double newton_polinominal(vector <pair <double,double>>& Table, double x,  vector <double>& div_diff)
 {
     double result = Table[0].second;
@@ -84,24 +37,12 @@ double newton_polinominal(vector <pair <double,double>>& Table, double x,  vecto
     return result;
 }
 
-double create_Newton_polinomial(vector <pair <double,double>>& Table, double x)
+double create_Newton_polinomial(vector <pair <double,double>>& Table, double x, double degree)
 {
     vector <double> div_diff;
-    for (int i =1; i< Table.size(); i++)
+    for (int i =1; i<= degree; i++)
     {
         div_diff.push_back(divide_difference(Table, i));
     }
     return newton_polinominal(Table, x, div_diff);
 }
-
-
-//
-//bool compare(const pair<double, double>& a, const pair<double, double>& b, const double& x) {
-//    return abs(a.second - x) < abs(b.second - x);
-//}
-//
-//void sortByDistance(vector<pair<double, double>>& Table, const double& x) {
-//    sort(Table.begin(), Table.end(), [&](const pair<double, double>& a, const pair<double, double>& b) {
-//        return compare(a, b, x);
-//    });
-//}

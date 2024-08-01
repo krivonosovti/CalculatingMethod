@@ -1,0 +1,88 @@
+//
+// Created by krivonosovTi on 21.03.2024.
+//
+#include <iostream>
+#include "root_search.h.txt"
+#include "reverse_interpolation.h"
+#include "/Users/krivonosovti/SPbU/Vichi/basic_function.h.txt"
+#include "root_search.h.txt"
+using namespace std;
+
+    void task2_main() {
+
+        vector<pair<double,double>> Tab;
+        int part;
+        cout << "Введите тип задания (mod 2) (1 - поиск корней, 0 - обратная интерполяция) ";
+        cin >> part;
+        if (part % 2 == 1) {
+            double A, B, N, error_rate;
+            cout << "    Введите начало интервала: ";
+            cin >> A;
+            cout << "    Введите конец интервала:";
+            cin >> B;
+            if (A == B) {
+                cout << endl;
+                return;
+            }
+            if (B < A)
+                swap(B, A);
+
+            cout << "    Введите размер дробления (>0): ";
+            cin >> N;
+            if (N <= 0) {
+                cout << endl;
+                return;
+            }
+
+            cout << "    Введите допустимую погрешность: (>0) ";
+            cin >> error_rate;
+            cout << endl << endl;
+            if (error_rate <= 0) {
+                cout << endl;
+                {
+                    cout << endl;
+                    return;
+                }
+            }
+
+            task2_part1 ( A,   B,  N,  error_rate);
+            cout << endl << endl;
+        }
+        else {
+            cout << "ЗАДАЧА ОБРАТНОГО ИНТЕРПОЛИРОВАНИЯ" << endl << "Задание 2.2 " << endl;
+            cout << "Введите 1 если монотонный промежуток, 0 если нет: ";
+            int sub;
+            cin >> sub;
+
+            if (sub % 2 == 1)
+               Tab = task2_part2_sab1(Tab);
+            else
+               Tab = task2_part2_sab2(Tab);
+
+            cout << " Хотите воспользоваться други методом: введите 1";
+            int og;
+            cin >> og;
+            if (og == 1)
+            {
+                cout << "Введите 1 если монотонный промежуток, 0 если нет: ";
+                int sub;
+                cin >> sub;
+
+                if (sub % 2 == 1)
+                    Tab = task2_part2_sab1(Tab);
+                else
+                    Tab = task2_part2_sab2(Tab);
+            }
+            cout << endl;
+            return;
+        }
+
+        cout << "Для перехода к другому заданию введите -1: ";
+        int br;
+        cin >> br;
+        if (br == -1)
+            return;
+    }
+
+
+

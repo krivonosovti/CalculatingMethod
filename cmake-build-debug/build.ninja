@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: 3course.task_1
+# Project: Vichi
 # Configurations: Debug
 # =============================================================================
 
@@ -39,86 +39,94 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/krivonosovti/SPbU/3course/cmake-build-debug/
+cmake_ninja_workdir = /Users/krivonosovti/SPbU/Vichi/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target 3course
+# Object build statements for EXECUTABLE target Vichi
 
 
 #############################################
-# Order-only phony target for 3course
+# Order-only phony target for Vichi
 
-build cmake_object_order_depends_target_3course: phony || CMakeFiles/3course.dir
+build cmake_object_order_depends_target_Vichi: phony || CMakeFiles/Vichi.dir
 
-build CMakeFiles/3course.dir/task_1/task_1.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_1/task_1.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_1/task_1.cpp.o.d
+build CMakeFiles/Vichi.dir/main.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/main.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_1
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir
 
-build CMakeFiles/3course.dir/task_1/implementation.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_1/implementation.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_1/implementation.cpp.o.d
+build CMakeFiles/Vichi.dir/task_1/implementation.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_1/implementation.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_1/implementation.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_1
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_1
 
-build CMakeFiles/3course.dir/basic_function.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/basic_function.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/basic_function.cpp.o.d
+build CMakeFiles/Vichi.dir/task_1/task_1.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_1/task_1.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_1/task_1.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_1
 
-build CMakeFiles/3course.dir/task_2/root_search.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_2/root_search.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_2/root_search.cpp.o.d
+build CMakeFiles/Vichi.dir/basic_function.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/basic_function.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/basic_function.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_2
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir
 
-build CMakeFiles/3course.dir/task_2/task_2_main.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_2/task_2_main.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_2/task_2_main.cpp.o.d
+build CMakeFiles/Vichi.dir/task_3/task_3main.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_3/task_3main.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_3/task_3main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_2
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_3
 
-build CMakeFiles/3course.dir/main.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/main.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/main.cpp.o.d
+build CMakeFiles/Vichi.dir/task_4/task_4main.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_4/task_4main.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_4/task_4main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_4
 
-build CMakeFiles/3course.dir/task_3/task_3_main.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_3/task_3_main.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_3/task_3_main.cpp.o.d
+build CMakeFiles/Vichi.dir/task_5/task_5_main.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_5/task_5_main.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_5/task_5_main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_3
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_5
 
-build CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o: CXX_COMPILER__3course_unscanned_Debug /Users/krivonosovti/SPbU/3course/task_2/reverse_interpolation.cpp || cmake_object_order_depends_target_3course
-  DEP_FILE = CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o.d
+build CMakeFiles/Vichi.dir/task_6/task6_main.cpp.o: CXX_COMPILER__Vichi_unscanned_Debug /Users/krivonosovti/SPbU/Vichi/task_6/task6_main.cpp || cmake_object_order_depends_target_Vichi
+  DEP_FILE = CMakeFiles/Vichi.dir/task_6/task6_main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/3course.dir
-  OBJECT_FILE_DIR = CMakeFiles/3course.dir/task_2
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = CMakeFiles/Vichi.dir
+  OBJECT_FILE_DIR = CMakeFiles/Vichi.dir/task_6
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target 3course
+# Link build statements for EXECUTABLE target Vichi
 
 
 #############################################
-# Link the executable 3course
+# Link the executable Vichi
 
-build 3course: CXX_EXECUTABLE_LINKER__3course_Debug CMakeFiles/3course.dir/task_1/task_1.cpp.o CMakeFiles/3course.dir/task_1/implementation.cpp.o CMakeFiles/3course.dir/basic_function.cpp.o CMakeFiles/3course.dir/task_2/root_search.cpp.o CMakeFiles/3course.dir/task_2/task_2_main.cpp.o CMakeFiles/3course.dir/main.cpp.o CMakeFiles/3course.dir/task_3/task_3_main.cpp.o CMakeFiles/3course.dir/task_2/reverse_interpolation.cpp.o
+build Vichi: CXX_EXECUTABLE_LINKER__Vichi_Debug CMakeFiles/Vichi.dir/main.cpp.o CMakeFiles/Vichi.dir/task_1/implementation.cpp.o CMakeFiles/Vichi.dir/task_1/task_1.cpp.o CMakeFiles/Vichi.dir/basic_function.cpp.o CMakeFiles/Vichi.dir/task_3/task_3main.cpp.o CMakeFiles/Vichi.dir/task_4/task_4main.cpp.o CMakeFiles/Vichi.dir/task_5/task_5_main.cpp.o CMakeFiles/Vichi.dir/task_6/task6_main.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/3course.dir
+  OBJECT_DIR = CMakeFiles/Vichi.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = 3course
-  TARGET_PDB = 3course.dbg
+  TARGET_FILE = Vichi
+  TARGET_PDB = Vichi.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/krivonosovti/SPbU/3course/cmake-build-debug && /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/krivonosovti/SPbU/Vichi/cmake-build-debug && /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -129,7 +137,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/krivonosovti/SPbU/3course/cmake-build-debug && /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake --regenerate-during-build -S/Users/krivonosovti/SPbU/3course -B/Users/krivonosovti/SPbU/3course/cmake-build-debug
+  COMMAND = cd /Users/krivonosovti/SPbU/Vichi/cmake-build-debug && /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake --regenerate-during-build -S/Users/krivonosovti/SPbU/Vichi -B/Users/krivonosovti/SPbU/Vichi/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -145,9 +153,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/krivonosovti/SPbU/3course/cmake-build-debug
+# Folder: /Users/krivonosovti/SPbU/Vichi/cmake-build-debug
 
-build all: phony 3course
+build all: phony Vichi
 
 # =============================================================================
 # Built-in targets
@@ -156,14 +164,14 @@ build all: phony 3course
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/krivonosovti/SPbU/3course/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/krivonosovti/SPbU/Vichi/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/krivonosovti/SPbU/3course/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Users/krivonosovti/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/krivonosovti/SPbU/Vichi/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

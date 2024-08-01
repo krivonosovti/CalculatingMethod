@@ -1,0 +1,191 @@
+//
+// Created by krivonosovTi on 24.03.2024.
+//
+
+#include "task_3_main.h"
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <string>
+#include "/Users/krivonosovti/SPbU/3course/basic_function.h"
+
+
+using namespace std;
+//void create_plot(double left_limit, double right_limit, void (*func)(std::vector<std::pair<double, double>>))
+int var_mod =6;
+
+struct df_node{
+    double fx1;
+    double fx2;
+    double fx3;
+};
+
+struct TableEntry {
+    vector<double> x;       // значение аргумента
+    vector<double> fx;      // значение функции f(x)
+    vector<df_node> dfx;
+    vector<df_node> err;
+    vector<df_node> new_dfx;
+    vector<df_node> err_new_dfx;
+    vector<df_node> ddfx;
+    vector<df_node> ddfx_err;
+};
+
+
+double func2 (double x) {
+    return exp(1.5 * (var_mod % 5 + 1) * x);
+}
+
+
+void show_table(vector<pair<double, double>>& data, vector<pair<double, double>>& first_deriv, vector<pair<double, double>>& f)
+{
+    int i = 10;
+    int size = data.size();
+    string* Table = (string*) malloc(sizeof(string)*size+1);
+    Table[0] = "_";
+    for(i=i*8;i>0;i--)
+
+        Table[0] += "_";
+    for(int j = 0; j<=size; i++)
+    {
+       Table[j] = "| " + to_string(data[j].first) + " | " + to_string(data[j].second) + " | ";
+    }
+
+}
+
+void create_first_and_lust (vector<pair<double, double>>& deriv, vector<pair<double, double>>& data)
+{
+    if (data.size() < 2) {
+        cout << "err with data size";
+        return;
+    }
+    deriv[0].second = (-3 * data[0].second + 4*data[1].second - data[2].second)/abs(2 * data[1].first - data[0].first);
+    int size = data.size();
+    deriv.push_back(make_pair(data[size].first,  (3 * data[size].second - 4*data[size -1].second + data[size-2].second)/abs(2 * data[1].first - data[0].first)));
+}
+
+vector <pair<double, double>> formul_3 (vector<pair<double, double>>& data)
+{
+    vector<pair<double, double>> result = {make_pair(data[0].first,0)};
+    double helper =0;
+    double h = abs(data[0].first - data[1].first);
+    for (int i = 1; i < data.size()-1;i++)
+    {
+        helper = (data[i+1].second - data[i-1].second)/2*h;
+        result.push_back(make_pair(data[i].first,helper));
+    }
+    create_first_and_lust(result, data);
+    return result;
+}
+vector <pair<double, double>> formul_4 (vector<pair<double, double>>& data)
+{
+    vector<pair<double, double>> result = {make_pair(data[0].first,0)};
+    double helper =0;
+    double h = abs(data[0].first - data[1].first);
+    for (int i = 1; i < data.size()-1;i++)
+    {
+        helper = (-3*data[i].second + 4* data[i+1].second - data[i+2].second)/2*h;
+        result.push_back(make_pair(data[i].first,helper));
+    }
+    create_first_and_lust(result, data);
+    return result;
+}
+
+vector <pair<double, double>> formul_5 (vector<pair<double, double>>& data)
+{
+    vector<pair<double, double>> result = {make_pair(data[0].first,0)};
+    double helper =0;
+    double h = abs(data[0].first - data[1].first);
+    for (int i = 1; i < data.size()-1;i++)
+    {
+        helper = (3*data[i].second - 4* data[i-1].second + data[i-2].second)/2*h;
+        result.push_back(make_pair(data[i].first,helper));
+    }
+    create_first_and_lust(result, data);
+    return result;
+}
+
+vector<pair<double, double>> formul_6(const vector<pair<double, double>>& data) {
+    vector<pair<double, double>> result;
+
+    // Проверка на наличие данных для вычисления
+    if (data.size() < 3) {
+        cerr << "Insufficient data points for calculation of second derivative." << endl;
+        return result;
+    }
+
+    // Вычисление вторых производных для каждой точки, кроме крайних
+    for (size_t i = 1; i < data.size() - 1; ++i) {
+        double xi = data[i].first;
+        double h = abs(data[i].first - data[i - 1].first);
+        double y_prev = data[i - 1].second;
+        double y = data[i].second;
+        double y_next = data[i + 1].second;
+
+        double second_derivative = (y_next - 2 * y + y_prev) / (h * h);
+        result.push_back(make_pair(xi, second_derivative));
+    }
+
+    return result;
+}
+
+void task_3_main()
+{
+    TableEntry table;
+
+    int NumValInTable, err;
+    double a, b, x,degree;
+    bool checker;
+    vector<pair<double, double>> nodes;
+
+    cout << "Задача 3    Нахождение производных таблично-заданной функции по формулам численного дифференцирования" << endl;
+    cout << " Вариант 6" << endl << endl;
+        checker = false;
+        while (!checker) {
+            checker = inputData(NumValInTable, a, b, x, degree, err);
+            if (!checker) {
+                // cout << "a > b or n>m exeption" << endl << endl;
+                switch (err) {
+                    case 1:
+                        cout << "m <= 0 exeption" << endl << endl;
+                        break;
+                    case 2:
+                        cout << "a > b exeption" << endl << endl;
+                        break;
+                    case 3:
+                        cout << "NumValInTable-1 < degree exeption" << endl << endl;
+                        break;
+                }
+
+            }
+        }
+
+        cout << "Выберите функцию" << endl << "0: x * x / (1 + x * x)" << endl << "1: exp(1.5" << var_mod % 5 + 1
+             << "x)" << endl << " Введите 0 или 1";
+        int check_var;
+        cin >> check_var;
+        check_var %= 2;
+        if (check_var == 1) {
+            cout << "1: exp(1.5" << var_mod % 5 + 1 << "x)" << endl;
+            nodes = buildFunctionValues_2(a, b, NumValInTable, func2);
+        } else {
+            cout << "0: x * x / (1 + x * x)" << endl;
+            nodes = buildFunctionValues_2(a, b, NumValInTable, main_func);
+        }
+        // с квадратичной погрешностью)
+        vector<pair <double, double>> deriv_result_by_third = formul_3(nodes);
+        vector<pair <double, double>> deriv_result_by_fourth = formul_4(nodes);
+        vector<pair <double, double>> deriv_result_by_fifth = formul_5(nodes);
+
+        //с тетракубической погрещностью)
+
+       // vector<pair <double, double>> deriv_result_by_fifth = formul_5(nodes);
+
+        vector_print(nodes);
+
+
+        cout << endl;
+
+
+        // исследовательский этап)
+}
